@@ -26,6 +26,16 @@ print(
 print(
     "last element in list and second element in inner list lst[-1][1]: ", lst[-1][1]
 )  # print last element in list and second element in inner list = 0
+list_1 = ["a", "b", "c"]  # list_1 with letter
+print('list_1 with letter ["a", "b", "c"]: ', list_1)  # print list_1 with letter
+list_2 = [1, 2]  # list_2 with numbers
+print("list_2 with number [1, 2]: ", list_2)  # print list_2 with number
+list_1.extend(list_2)  # add list list_2 to list_1 at the end
+print("List list_1 extend list list_2 list_1.extend(list_2): ", list_1)
+list_2.insert(2, 3)  # add list number 3 in list_2 with index 2
+print(
+    "Add to list list_2 in position with index 2 number 3 list_2.insert(2, 3): ", list_2
+)
 
 
 #  True   False

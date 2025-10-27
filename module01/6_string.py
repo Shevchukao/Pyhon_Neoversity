@@ -63,3 +63,7 @@ print(
 print(
     'Change in string letter "a" to "A":', str6.replace("a", "A")
 )  # Change in string letter "a" to "A"
+
+str7 = "Hello"
+str8 = f"{str7} world {1+2}"  # f string
+print(str8)

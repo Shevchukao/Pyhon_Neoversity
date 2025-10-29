@@ -56,7 +56,7 @@ udow = {
     6: "Неділя",
 }
 print(dtdt.strftime(now, f"%d/%m/%Y, {udow[now.weekday()]}, %H:%M:%S"))
-# Ukrainian weekday from dictionary udow (ukr day of week)
+# Ukrainian weekday from dictionary udow (ukr day of week) to str
 print(
     dtdt.strptime(
         "29/10/2025, Середа, 14:21:59", f"%d/%m/%Y, {udow[now.weekday()]}, %H:%M:%S"
@@ -68,3 +68,7 @@ print(dtdt.fromisoformat("2025-10-29T14:36:34.006954"))  # 2025-10-29 14:36:34.0
 print(
     type(dtdt.fromisoformat("2025-10-29T14:36:34.006954"))
 )  # format datetime.datetime
+print(dt1)  # 1998-02-10 09:45:13
+print(dt2)  # 2025-10-29 13:15:13
+print(dt1 < dt2)  # True, because dt2 > dt1
+print(dt1 > dt2)  # False, because dt2 > dt1

@@ -1,3 +1,9 @@
+a = "string"
+print(type(a))
+print(dir(a))
+#print(help(a))
+
+
 str = "Hello shiny World"
 # str[2] = "w" #  string does not support item assignment
 

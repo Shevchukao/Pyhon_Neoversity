@@ -4,37 +4,37 @@ s = "123++4 Asd1234 2323dFdf++ 1234+++ 1231 123asDasd+"
 
 pat1 = "[0-9]{1,}"  # pattern, matches the preceding element [0-9] one or more numbers
 res1 = re.findall(pat1, s)  # return list of all matches of pattern "[0-9]{1,}"
-print("scans and returns list of matches of pattern '[0-9]{1,}':", res1)
+print("returns all list of matches of pattern '[0-9]{1,}':", res1)
 
 pat2 = r"\d+"  # matches the preceding element d - digit, "+" or (1 or more) numbers
 res2 = re.findall(pat2, s)  # scans and returns list of matches of pattern r"\d+"
-print("scans and returns list of matches of pattern r'\d+':", res2)
+print("returns all list of matches of pattern r'\d+':", res2)
 
 pat3 = r"[0-9]{1,3}"  # r"" (raw string change color),  matches the preceding element [0-9], {1-3} numbers
 res3 = re.findall(pat3, s)  # scans and returns list of matches of pattern r"[0-9]{1,3}"
-print("scans and returns list of matches of pattern r'[0-9]{1,3}':", res3)
+print("returns all list of matches of pattern r'[0-9]{1,3}':", res3)
 
 pat4 = r"\d{1,3}"  # matches the preceding element d - digit, {1-3} numbers
 res4 = re.findall(pat4, s)  # scans and returns list of matches of pattern r"\d{1,3}"
-print("scans and returns list of matches of pattern r'\d{1,3}':", res4)
+print("returns all list of matches of pattern r'\d{1,3}':", res4)
 
 pat5 = r"[a-zA-Z]{1,3}"  # matches the preceding element [a-zA-Z], {1-3} numbers
 res5 = re.findall(pat5, s)  # returns list of matches of pattern r"[a-zA-Z]{1,3}"
-print("scans and returns list of matches of pattern r'[a-zA-Z]{1,3}':", res5)
+print("returns all list of matches of pattern r'[a-zA-Z]{1,3}':", res5)
 
 pat6 = r"\++"  # matches the preceding element "\+", "+" or (1 or more) numbers
 res6 = re.findall(pat6, s)  # scans and returns list of matches of pattern r"\++"
-print("scans and returns list of matches of pattern r'\++':", res6)
+print("returns all list of matches of pattern r'\++':", res6)
 
 pat7 = r"\++"  # matches the preceding element "\+", "+" or (1 or more) numbers
 res7 = re.search(pat7, s)  # return match object first elem "\+", or None if not found
-print("scans and returns matches of pattern r'\++' re.search(pat7, s):", res7)
-print("scans and returns matches of pattern r'\++' res7.group():", res7.group())  # ++
-print("scans and returns matches of pattern r'\++' res7.span():", res7.span())  # (3,5)
+print("returns first object matches of pattern r'\++' re.search(pat7, s):", res7)
+print("returns group of matches of pattern r'\++' res7.group():", res7.group())  # ++
+print("returns span of matches of pattern r'\++' res7.span():", res7.span())  # (3,5)
 
 pat8 = r"\w+"  # matches the preceding [a-zA-Z0-9_], "+" or (1 or more) numbers
 res8 = re.search(pat8, s)  # return match object first elem "\w+", or None if not found
-print("scans and returns list of matches of pattern r'\w+':", res8)  # (0,3) "123"
+print("returns first object of matches of pattern r'\w+':", res8)  # (0,3) "123"
 
 """
 scans and returns list of matches of pattern '[0-9]{1,}': ['123', '4', '1234', '2323', '1234', '1231', '123']
@@ -49,10 +49,25 @@ scans and returns list of matches of pattern r'\++': (3,5)
 
 """
 
-s1 = "pi is 3.14 and it's a constant"
-pat9 = r"\d+.\d+"  # matches the preceding [0-9.0-9], "+" or (1 or more) numbers
-res9 = re.search(pat9, s1)
-print("scans and returns list of matches of pattern r'\d+.\d+'", res9)
+s1 = "pi is 3.14 and it's a constant," ".5 is also a constant but has no name"
+pat9 = r"\d*\.\d+"  # matches the preceding [0-9.0-9], "+" or (1 or more) numbers
+res9 = re.findall(pat9, s1)  # find all pattern in string s1
+print("returns all list of matches of pattern r'\d*\.\d+'", res9)  # ['3.14', '.5']
+
+mail = "j_sm.98@mail.com '; drop database; coll@mail,com"
+pat10 = r"[\w\.]+@\w+\.\w+"  # matches preceding [\w\.]+@\w+\.\w+
+# [\w\.]+ <-> \w+ or \.+
+res10 = re.match(pat10, mail).group()  # check from first symbols of string
+print(
+    "returns begin str matches of pattern r'[\w\.]+@\w+\.\w+'", res10
+)  # j_sm.98@mail.com
+
+mail = "j_sm.98@mail.com '; drop database; coll@mail,com"
+pat11 = r"^[\w\.]+@\w+\.\w+"  # matches preceding ^[\w\.]+@\w+\.\w+
+res11 = re.findall(pat11, mail)  #
+print(
+    "returns begin list matches of pattern r'^[\w\.]+@\w+\.\w+'", res11
+)  # [j_sm.98@mail.com]
 
 
 # The re Module Functions

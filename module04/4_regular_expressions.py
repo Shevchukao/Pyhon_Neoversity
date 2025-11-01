@@ -62,12 +62,65 @@ print(
     "returns begin str matches of pattern r'[\w\.]+@\w+\.\w+'", res10
 )  # j_sm.98@mail.com
 
-mail = "j_sm.98@mail.com '; drop database; coll@mail,com"
+mail = "j_sm.98@mail.com '; drop database; coll@mail.com"
 pat11 = r"^[\w\.]+@\w+\.\w+"  # matches preceding ^[\w\.]+@\w+\.\w+
 res11 = re.findall(pat11, mail)  #
 print(
     "returns begin list matches of pattern r'^[\w\.]+@\w+\.\w+'", res11
 )  # [j_sm.98@mail.com]
+pat12 = r"[\w\.]+@\w+\.\w+$"  # matches preceding [\w\.]+@\w+\.\w+$
+res12 = re.findall(pat12, mail)  #
+print(
+    "returns end list matches of pattern r'[\w\.]+@\w+\.\w+$'", res12
+)  # ['coll@mail.com']
+
+
+# phones = """+3806812345678     # Don't work
+# +3806876543218
+# +38(068)123-56-78
+# """
+# pat = r"^\+[3,8,0]\d{12}$"
+# print(re.findall(pat,phones))
+# res=[]
+# for phone in phones.split("\n"):
+#     found = re.findall(pat,phones)
+#     if found is not None:
+#         res.extend(found)
+# print(res)
+
+
+mails = """j_sm.98@mail.com
+'; drop database;
+mail1@ukr.net
+mail2@i.ua
+coll@mail.com
+"""
+
+pat13 = r"([\w\.]+)@(\w+)\.(\w+)"
+print(re.findall(pat13, mails))
+# [('j_sm.98', 'mail', 'com'), ('mail1', 'ukr', 'net'), ('mail2', 'i', 'ua'), ('coll', 'mail', 'com')]
+
+input = """fname:John,lname:Smith
+fname:Anton,lname:Shevchuk
+fname:Olena,lname:Shevch
+fname:Irina,lname:Moskalenko
+"""
+
+pat = r"[l,f]?name"
+print(re.sub(pat, "id", input))  # change name on id using pattern
+
+"""
+id:John,id:Smith
+id:Anton,id:Shevchuk
+id:Olena,id:Shevch
+id:Irina,id:Moskalenko
+"""
+
+print(re.split(r"[\n,:]", input))  # split using \n and , and :
+
+"""
+['fname:John', 'lname:Smith', 'fname:Anton', 'lname:Shevchuk', 'fname:Olena', 'lname:Shevch', 'fname:Irina', 'lname:Moskalenko', '']
+"""
 
 
 # The re Module Functions

@@ -14,3 +14,5 @@ if __name__ == "raise_salary":
 if __name__ == "__main__":
     print(raise_salary(1000, 0))
     print(raise_salary(1000, 100))
+
+print(dir())

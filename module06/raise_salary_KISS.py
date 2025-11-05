@@ -23,7 +23,7 @@ def is_even(n: int) -> bool:
 # EASY
 def is_even(n: int) -> bool:
     return n % 2 == 1
-
+print(dir())
 
 if __name__ == "raise_salary":
     print("you are using cool module 'A'")

@@ -1,0 +1,7 @@
+ Some long and funny
+            Text is here
+            To show us
+            How to use
+            and why to use
+            generators.
+    

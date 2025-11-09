@@ -19,3 +19,4 @@ print(f"Filled: {list(queue)}")  # Filled: ['b1', 'a', 't']
 # popleft append - queue in other side
 # pop append - stack
 # popleft appendleft - left stack
+# pop in empty queue - Index Error

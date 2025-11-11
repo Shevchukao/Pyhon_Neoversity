@@ -5,11 +5,11 @@
 # print()
 
 
-# def sq_gen(n=10):
-#     i = 0
-#     while i < n:
-#         i += 1
-#         yield i * i  # return one values, yield many values
+def sq_gen(n=10):
+    i = 0
+    while i < n:
+        i += 1
+        yield i * i  # return one values, yield many values
 
 
 def reader(filename: str):

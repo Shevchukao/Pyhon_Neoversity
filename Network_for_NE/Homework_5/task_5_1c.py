@@ -27,4 +27,4 @@ london_co = {
 name_device = input("Введите имя устройства: ")
 param_for_some_device = tuple(london_co[name_device].keys())
 param_device = input(f"Введите имя параметра {param_for_some_device}: ")
-print(london_co[name_device].setdefault(param_device, "Такого параметра нет"))
+print(london_co[name_device].get(param_device, "Такого параметра нет"))

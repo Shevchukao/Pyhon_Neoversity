@@ -1,29 +1,29 @@
-import sys
+london_co = {
+    "r1": {
+        "location": "21 New Globe Walk",
+        "vendor": "Cisco",
+        "model": "4451",
+        "ios": "15.4",
+        "ip": "10.255.0.1",
+    },
+    "r2": {
+        "location": "21 New Globe Walk",
+        "vendor": "Cisco",
+        "model": "4451",
+        "ios": "15.4",
+        "ip": "10.255.0.2",
+    },
+    "sw1": {
+        "location": "21 New Globe Walk",
+        "vendor": "Cisco",
+        "model": "3850",
+        "ios": "3.6.XE",
+        "ip": "10.255.0.101",
+        "vlans": "10,20,30",
+        "routing": True,
+    },
+}
 
-access_template = [
-    "switchport mode access",
-    "switchport access vlan {}",
-    "switchport nonegotiate",
-    "spanning-tree portfast",
-    "spanning-tree bpduguard enable",
-]
-
-trunk_template = [
-    "switchport trunk encapsulation dot1q",
-    "switchport mode trunk",
-    "switchport trunk allowed vlan {}",
-]
-
-# interface_mode = input("\nВведите режим работы интерфейса (access/trunk): ")
-# interface_type_number = input("Введите тип и номер интерфейса: ")
-# question = {"access": "Введите номер VLAN: ", "trunk": "Введите разрешенные VLAN: "}
-# vlan = input(question[interface_mode])
-
-interface_mode = sys.argv[1]
-interface_type_number = sys.argv[2]
-question = {"access": "Введите номер VLAN: ", "trunk": "Введите разрешенные VLAN: "}
-vlan = input(question[sys.argv[1]])
-
-dict_template = {"access": access_template, "trunk": trunk_template}
-str1 = "\n".join(dict_template[interface_mode])
-print(f"\ninterface {interface_type_number}\n{str1.format(vlan)}\n")
+name_device = input("Введите имя устройства: ")
+param_device = input("Введите имя параметра: ")
+print(london_co[name_device][param_device])

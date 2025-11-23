@@ -1,3 +1,5 @@
+import sys
+
 access_template = [
     "switchport mode access",
     "switchport access vlan {}",
@@ -12,10 +14,16 @@ trunk_template = [
     "switchport trunk allowed vlan {}",
 ]
 
-interface_mode = input("\nВведите режим работы интерфейса (access/trunk): ")
-interface_type_number = input("Введите тип и номер интерфейса: ")
+# interface_mode = input("\nВведите режим работы интерфейса (access/trunk): ")
+# interface_type_number = input("Введите тип и номер интерфейса: ")
+# question = {"access": "Введите номер VLAN: ", "trunk": "Введите разрешенные VLAN: "}
+# vlan = input(question[interface_mode])
+
+interface_mode = sys.argv[1]
+interface_type_number = sys.argv[2]
 question = {"access": "Введите номер VLAN: ", "trunk": "Введите разрешенные VLAN: "}
-vlan = input(question[interface_mode])
+vlan = input(question[sys.argv[1]])
+
 dict_template = {"access": access_template, "trunk": trunk_template}
 str1 = "\n".join(dict_template[interface_mode])
 print(f"\ninterface {interface_type_number}\n{str1.format(vlan)}\n")
